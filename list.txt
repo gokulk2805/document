@@ -1,0 +1,424 @@
+	ROTATE LIST
+
+	lst = list(map(int, input().split()))
+
+	n = len(lst)
+
+	k = 2 % n
+
+	result = lst[-k:] + lst[:-k]
+
+	print(*result)
+
+
+
+	NEGATIVE BEFORE POSITIVE
+
+	s=input().strip()
+
+	arr=list(map(int,s[1:-1].split(',')))
+
+	neg=[]
+
+	pos=[]
+
+	for x in arr:
+
+	 if x < 0:
+
+	 neg.append(x)
+
+	 else:
+
+	 pos.append(x)
+
+	result= neg + pos
+
+	print("List = ",result)
+
+
+
+	LARGEST DIVISOR
+
+	n=int(input().strip())
+
+	arr=list(map(int,input().strip().split(',')))
+
+	result=[]
+
+
+
+	for i in range(n):
+
+	 x=arr[i]
+
+	 max_div=-1
+
+	 for j in range(n):
+
+	 if i!=j:
+
+	 y=arr[j]
+
+	 if y!=0 and x % y==0:
+
+	 if y>max_div:
+
+	 max_div=y
+
+	 result.append(max_div)
+
+	print(result)
+
+
+
+	REPLACE INDEX
+
+	n=int(input().strip())
+
+	arr=[]
+
+	for _ in range(n):
+
+	 arr.append(int(input().strip()))
+
+	arr.sort()
+
+	original=arr.copy()
+
+	for i in range (n):
+
+	 if i ==0:
+
+	 arr[i]=0
+
+	 elif i %2==0:
+
+	 arr[i]=arr[i]**3
+
+	 else:
+
+	 arr[i]=arr[i]**2
+
+	print("Original List:",original)
+
+	print("Replaced List:",arr)
+
+
+
+	LIST HALF COMPARISON
+
+	n=int(input())
+
+	arr=list(map(int,input().split()))
+
+	s1=0
+
+	s2=0
+
+	if n % 2 ==0:
+
+	 s1=sum(arr[:n//2])
+
+	 s2=sum(arr[n//2:])
+
+	else:
+
+	 s1=sum(arr[:n//2])
+
+	 s2=sum(arr[n//2+1:])
+
+	if s1 == s2:
+
+	 print("Balanced")
+
+	 print(f"Sum of first half: {s1}")
+
+	 print(f"Sum of second half: {s2}")
+
+	else:
+
+	 print("Not Balanced")
+
+	 print("Original list:", *arr)
+
+
+
+	PEAKS
+
+	arr=list(map(int,input().split()))
+
+	n=len(arr)
+
+	peaks=[
+
+	 arr[i] for i in range(n)
+
+	 if ( i == 0 and arr[i] > arr[i+1]) or
+
+	 ( i == n-1 and arr[i]> arr[i-1]) or
+
+	 (0 < i < n-1 and arr[i] > arr[i-1] and arr[i] > arr[i+1])]
+
+
+
+	print("Peaks:",peaks)
+
+
+
+	REMOVAL
+
+	lst=list(map(int,input().split()))
+
+	print("List1:",lst)
+
+	x=int(input())
+
+	if x in lst:
+
+	 lst.remove(x)
+
+	 print("List after removal:",lst)
+
+	else:
+
+	 print("Element not found in the list")
+
+	new=list(map(int,input().split()))
+
+	lst.extend(new)
+
+	print("Final list:",lst)
+
+
+
+	NEGATIVE SLICING
+
+	n=int(input())
+
+	lst=list(map(int,input().split()))
+
+	if n>=6:
+
+	 temp=lst[-6:]
+
+	 temp.pop(1)
+
+	 temp.pop(3)
+
+	elif n==5:
+
+	 temp=lst[:-1]
+
+	elif n==4:
+
+	 temp=lst[1:-1]
+
+	else:
+
+	 temp=lst[:]
+
+	for i in temp:
+
+	 print(i**3 )
+
+
+
+	TARGET
+
+	numbers = list(map(int, input().split()))
+
+	target = int(input())
+
+
+
+	pairs = []
+
+
+
+	for i in range(len(numbers)):
+
+	 for j in range(len(numbers)):
+
+	 if i != j and numbers[i] + numbers[j] == target:
+
+	 if numbers[i] % 2 == 0 or numbers[j] % 2 == 0:
+
+	 pairs.append([numbers[i], numbers[j]])
+
+
+
+	for pair in pairs:
+
+	 print(pair, end=" ")
+
+
+
+	GCD
+
+	a=int(input())
+
+	b=int(input())
+
+	while b!= 0 :
+
+	 a,b=b,a%b
+
+	print(a)
+
+
+
+	LIST OF INTEGERS
+
+	s=input().strip()
+
+	lst=list(map(int,s.strip('[]').split(',')))
+
+	neg=[x for x in lst if x < 0]
+
+	pos=[x for x in lst if x >= 0]
+
+	result=neg +pos
+
+	print("["+",".join(map(str,result))+"]")
+
+
+
+	LIST FUNCTIONS
+
+	 		 			 append(x)
+
+			 Adds element at end
+
+
+
+
+
+	 		 			 insert(i,x)
+
+			 Inserts element at index
+
+
+
+
+
+	 		 			 extend(list2)
+
+			 Adds multiple elements
+
+
+
+
+
+	 		 			 remove(x)
+
+			 Removes first occurrence of x
+
+
+
+
+
+	 		 			 pop()
+
+			 Removes last element
+
+
+
+
+
+	 		 			 pop(i)
+
+			 Removes element at index i
+
+
+
+
+
+	 		 			 clear()
+
+			 Removes all elements
+
+
+
+
+
+	 		 			 index(x)
+
+			 Returns index of x
+
+
+
+
+
+	 		 			 count(x)
+
+			 Counts occurrences of x
+
+
+
+
+
+	 		 			 sort()
+
+			 Sorts list ascending
+
+
+
+
+
+	 		 			 sort(reverse=True)
+
+			 Sorts descending
+
+
+
+
+
+	 		 			 reverse()
+
+			 Reverses list
+
+
+
+
+
+	 		 			 copy()
+
+			 Creates copy of list
+
+
+
+
+
+	 		 			 len(lst)
+
+			 Returns length
+
+
+
+
+
+	 		 			 max(lst)
+
+			 Largest element
+
+
+
+
+
+	 		 			 min(lst)
+
+			 Smallest element
+
+
+
+
+
+	 		 			 sum(lst)
+
+			 Sum of elements
+
+
+
+
+

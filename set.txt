@@ -1,0 +1,284 @@
+﻿COMMON INGREDIENT
+# You are using Python
+def find_common_ingredients():
+    recipe1 = set(input().split())
+    recipe2 = set(input().split())
+    
+    common_ingredients = sorted(list(recipe1.intersection(recipe2)))
+    
+    if common_ingredients:
+        print(" ".join(common_ingredients))
+    else:
+        print("No common ingredients found.")
+
+find_common_ingredients()
+
+DELIVERY TIME
+# You are using Python
+def process_delivery_times(delivery_times):
+  times = [int(time) for time in delivery_times.split()]
+  unique_times = sorted(list(set(times)))
+  return str(unique_times)
+
+# Read input from the user
+delivery_times = input()
+
+# Process the delivery times and print the result
+result = process_delivery_times(delivery_times)
+print(result)
+
+FAVOURITE NUMBER
+def find_difference(alice_set, bob_set):
+    
+
+    difference = sorted(list(set(alice_set) - set(bob_set)))
+    return difference
+
+
+n = int(input())
+alice_set = list(map(int, input().split()))
+m = int(input())
+bob_set = list(map(int, input().split()))
+
+result = find_difference(alice_set, bob_set)
+print(*result)
+
+SKILLS
+def solve():
+    sets = []
+    for _ in range(5):
+        sets.append(set(map(int, input().split())))
+
+    common_skills = sets[0].copy()
+    for s in sets[1:]:
+        common_skills.intersection_update(s)
+
+    unique_skills = set()
+    for s in sets:
+        unique_skills.update(s)
+
+    unique_skills.difference_update(common_skills)
+
+    print(sorted(list(common_skills), reverse=True))
+    print(sorted(list(unique_skills), reverse=True))
+
+solve()
+
+E COMMERECE PLATFORM
+def solve():
+    n1 = int(input())
+    set1 = set(map(int, input().split()))
+    n2 = int(input())
+    set2 = set(map(int, input().split()))
+    
+    union_set = set1.union(set2)
+    sorted_union = sorted(list(union_set))
+    
+    print(*sorted_union)
+
+solve()
+
+FIRST GROUP
+def find_exclusive_students():
+    n = int(input())
+    groups = []
+    for _ in range(n):
+        group = set(map(int, input().split()))
+        groups.append(group)
+
+    first_group = groups[0]
+    exclusive_students = sorted(list(first_group.difference(*(groups[1:]))))
+
+    print(exclusive_students)
+    print(len(exclusive_students))
+
+find_exclusive_students()
+
+DESCENDING SORTED
+input_str = input()
+nums = [int(x) for x in input_str.split()]
+unique_nums = sorted(list(set(nums)), reverse=True)
+print(unique_nums)
+
+ABSOLUTE DIFFERENCE
+def solve():
+    n = int(input())
+    items = list(map(int, input().split()))
+
+    min_diff = float('inf')
+    best_group1 = []
+    best_group2 = []
+
+    for i in range(1 << n):
+        group1 = []
+        group2 = []
+        for j in range(n):
+            if (i >> j) & 1:
+                group1.append(items[j])
+            else:
+                group2.append(items[j])
+
+        sum1 = sum(group1)
+        sum2 = sum(group2)
+        diff = abs(sum1 - sum2)
+
+        if diff < min_diff:
+            min_diff = diff
+            best_group1 = group1
+            best_group2 = group2
+
+    best_group1.sort(reverse=True)
+    best_group2.sort(reverse=True)
+
+    print(best_group1)
+    print(best_group2)
+    print(min_diff)
+
+solve()
+
+SYMMETRIC DIFFERENCE
+def solve():
+    set1 = list(map(int, input().split()))
+    set2 = list(map(int, input().split()))
+
+    even_set1 = sorted([x for x in set1 if x % 2 == 0])
+    odd_set2 = sorted([x for x in set2 if x % 2 != 0])
+
+    symmetric_difference = sorted(list(set(even_set1) ^ set(odd_set2)))
+    sum_symmetric_difference = sum(symmetric_difference)
+
+    print(even_set1)
+    print(odd_set2)
+    print(symmetric_difference)
+    print(sum_symmetric_difference)
+
+solve()
+
+MULTIPLE STORES
+def solve():
+    k = int(input())
+    sets = []
+    for _ in range(k):
+        sets.append(set(map(int, input().split())))
+
+    symmetric_difference = sets[0]
+    for i in range(1, k):
+        symmetric_difference = symmetric_difference.symmetric_difference(sets[i])
+
+    sorted_list = sorted(list(symmetric_difference))
+    print(sorted_list)
+    print(sum(sorted_list))
+
+solve()
+
+DUPLICATE ELEMENTS
+def solve():
+    list1 = list(map(int, input().split()))
+    list2 = list(map(int, input().split()))
+
+    if list1:
+        list1.pop()
+
+    set1 = set(list1)
+    set2 = set(list2)
+
+    merged_set = set1.union(set2)
+    sorted_list = sorted(list(merged_set))
+
+    print(sorted_list)
+
+solve()
+
+ANALAYSE THREE ACDEMIC 
+def solve():
+    registered = set(map(int, input().split()))
+    attended = set(map(int, input().split()))
+    dropped_out = set(map(int, input().split()))
+    
+    registered_and_attended = registered.intersection(attended)
+    
+    attended_and_did_not_drop_out = registered_and_attended - dropped_out
+    
+    print("{" + ", ".join(map(str, sorted(list(registered_and_attended)))) + "}")
+    print("{" + ", ".join(map(str, sorted(list(attended_and_did_not_drop_out)))) + "}")
+
+solve()
+
+MAX,MIN,SPECIFIC
+def solve():
+    try:
+        initial_set = list(map(int, input().split()))
+        choice = int(input())
+
+        initial_set.sort(reverse=True)
+        print("{" + ", ".join(map(str, initial_set)) + "}")
+
+        if choice == 1:
+            print(max(initial_set))
+        elif choice == 2:
+            print(min(initial_set))
+        elif choice == 3:
+            num_to_remove = int(input())
+            new_set = [x for x in initial_set if x != num_to_remove]
+           
+            print("{" + ", ".join(map(str, new_set)) + "}")
+        else:
+            print("Invalid choice")
+    except ValueError:
+        print("Invalid input")
+
+solve()
+
+REMOVE ANY DUPLICATE ,PRESERVE ORIGINAL
+def process_integers(input_string):
+  """
+  Processes a list of integers, removes duplicates while preserving order,
+  concatenates the unique integers into a single string, and prints the result.
+
+  Args:
+    input_string: A string of space-separated integers.
+  """
+  integers = input_string.split()
+  unique_integers = []
+  for integer in integers:
+    if integer not in unique_integers:
+      unique_integers.append(integer)
+  
+  concatenated_string = "".join(unique_integers)
+  print(concatenated_string)
+
+# Read the input from the user
+input_string = input()
+
+# Process the integers and print the result
+process_integers(input_string)
+
+COMMON AND UNIQUE
+def analyze_words(w1, w2):
+    w1 = w1.strip().lower()
+    w2 = w2.strip().lower()
+
+    set1 = set(w1)
+    set2 = set(w2)
+
+    common_letters = sorted(list(set1.intersection(set2)))
+    unique_letters = sorted(list(set1.symmetric_difference(set2)))
+
+    is_superset = set1.issuperset(set2)
+    no_common_letters = not bool(common_letters)
+
+    print(common_letters)
+    print(unique_letters)
+    print(is_superset)
+    print(no_common_letters)
+
+w1 = input()
+w2 = input()
+analyze_words(w1, w2)
+
+
+FunctionPurposeadd(x)Adds an elementupdate(iterable)Adds multiple elementsremove(x)Removes element (error if absent)discard(x)Removes element (no error)pop()Removes a random elementclear()Removes all elementscopy()Creates a copy of setunion()Combines setsintersection()Common elementsdifference()Elements in first set onlysymmetric_difference()Elements in either set but not bothissubset()Checks subsetissuperset()Checks supersetisdisjoint()Checks no common elementslen(s)Number of elements
+max(s)Largest element
+min(s)Smallest element
+sum(s)Sum of elements
+sorted(s)Returns sorted list

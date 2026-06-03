@@ -1,0 +1,754 @@
+	ONLINE SHIPPING PLATFORM
+
+	def process_customer_data():
+
+	 n = int(input())
+
+	 customer_data = {}
+
+	 for _ in range(n):
+
+	 line = input().split()
+
+	 customer_id = int(line[0])
+
+	 amounts = [int(amount) for amount in line[1:]]
+
+	 total_expenditure = sum(amounts)
+
+	 max_single_purchase = max(amounts)
+
+	 customer_data[customer_id] = [total_expenditure, max_single_purchase]
+
+	 print(customer_data)
+
+
+
+	process_customer_data()
+
+
+
+	EMPLOYEE ID MAPPING
+
+	def invert_mapping():
+
+	 n = int(input())
+
+	 original_dict = {}
+
+	 for _ in range(n):
+
+	 key=int(input())
+
+	 value=int(input())
+
+	 original_dict[key] = value
+
+
+
+	 inverted_dict = {}
+
+	 for key, value in original_dict.items():
+
+	 inverted_dict[value] = key
+
+
+
+	 for key, value in inverted_dict.items():
+
+	 print(f"{key} : {value}")
+
+
+
+	invert_mapping()
+
+
+
+	MULTI STORE BUSINESS
+
+	# You are using Python
+
+	def find_min_prices():
+
+	 n = int(input())
+
+	 product_prices = {}
+
+	 for _ in range(n):
+
+	 line = input().split()
+
+	 product_id = int(line[0])
+
+	 store_id = int(line[1])
+
+	 prices = [int(p) for p in line[2:]]
+
+
+
+	 if product_id not in product_prices:
+
+	 product_prices[product_id] = []
+
+	 product_prices[product_id].extend(prices)
+
+
+
+	 result = {}
+
+	 for product_id, prices in product_prices.items():
+
+	 if len(prices) > 1:
+
+	 result[product_id] = min(prices)
+
+
+
+	 print(result)
+
+
+
+	find_min_prices()
+
+	FINANCIAL,TRAVEL
+
+	# You are using Python
+
+	def combine_expense_reports():
+
+	 marketing = {}
+
+	 operations = {}
+
+
+
+	 n = int(input())
+
+	 for _ in range(n):
+
+	 category = input()
+
+	 expense = int(input())
+
+	 marketing[category] = expense
+
+
+
+	 m = int(input())
+
+	 for _ in range(m):
+
+	 category = input()
+
+	 expense = int(input())
+
+	 operations[category] = expense
+
+
+
+	 combined = {}
+
+	 for category, expense in marketing.items():
+
+	 combined[category] = expense
+
+
+
+	 for category, expense in operations.items():
+
+	 if category in combined:
+
+	 combined[category] += expense
+
+	 else:
+
+	 combined[category] = expense
+
+
+
+	 print("Combined Dictionary:", combined)
+
+
+
+	combine_expense_reports()
+
+
+
+	PRIME NUMBER
+
+	# You are using Python
+
+	n=int(input())
+
+	num=2
+
+	count=1
+
+	d={}
+
+
+
+	while count <= n:
+
+	 prime = True
+
+	 for i in range(2,num):
+
+	 if num % i == 0:
+
+	 prime=False
+
+	 break
+
+	 if prime:
+
+	 d[count]=num
+
+	 count += 1
+
+	 num += 1
+
+	print(d)
+
+
+
+
+
+	TOTAL,AVERAGE,FREQ
+
+	# You are using Python
+
+	n = int(input())
+
+	frequency_dict = {}
+
+
+
+	for _ in range(n):
+
+	 product_id = int(input())
+
+	 if product_id in frequency_dict:
+
+	 frequency_dict[product_id] += 1
+
+	 else:
+
+	 frequency_dict[product_id] = 1
+
+
+
+	# Sort the dictionary by keys to maintain order
+
+	frequency_dict = dict(sorted(frequency_dict.items()))
+
+
+
+	# Calculate metrics
+
+	total_unique_ids = len(frequency_dict)
+
+	average_frequency = sum(frequency_dict.values()) / total_unique_ids
+
+
+
+	# Format and print output
+
+	print(frequency_dict)
+
+	print(f"Total Unique IDs: {total_unique_ids}")
+
+	print(f"Average Frequency: {average_frequency:.2f}")
+
+
+
+	SHRUTI , FOOD,TRANSPORT,GROCERY
+
+	# You are using Python
+
+	# Read first month's budget
+
+	n = int(input())
+
+	budget = {}
+
+
+
+	for _ in range(n):
+
+	 category = int(input())
+
+	 amount = int(input())
+
+	 budget[category] = amount
+
+
+
+	# Read second month's budget
+
+	m = int(input())
+
+
+
+	for _ in range(m):
+
+	 category = int(input())
+
+	 amount = int(input())
+
+	 if category in budget:
+
+	 budget[category] += amount
+
+	 else:
+
+	 budget[category] = amount
+
+
+
+	# Format and print the merged budget
+
+	result = "Merged Budget {"
+
+	items = []
+
+	for category, amount in budget.items():
+
+	 items.append(f"{category}: {amount}")
+
+
+
+	result += ", ".join(items)
+
+	result += "}"
+
+
+
+	print(result)
+
+
+
+	BENJAMIN , MULTI STORE BUSINESS
+
+	# You are using Python
+
+	n = int(input())
+
+	product_prices = {}
+
+
+
+	for _ in range(n):
+
+	 line = list(map(int, input().split()))
+
+	 product_id = line[0]
+
+	 store_id = line[1]
+
+	 prices = line[2:]
+
+
+
+	 if product_id not in product_prices:
+
+	 product_prices[product_id] = []
+
+
+
+	 product_prices[product_id].extend(prices)
+
+
+
+	result = {}
+
+	for product_id, prices in product_prices.items():
+
+	 if len(prices) > 1:
+
+	 result[product_id] = min(prices)
+
+
+
+	print(result)
+
+
+
+	BOOBY DIFFERENT PLANT VARIETY
+
+	# You are using Python
+
+	n = int(input())
+
+	frequency = {}
+
+
+
+	for _ in range(n):
+
+	 line = list(map(int, input().split()))
+
+	 k = line[0]
+
+	 varieties = line[1:k+1]
+
+
+
+	 for variety in varieties:
+
+	 if variety in frequency:
+
+	 frequency[variety] += 1
+
+	 else:
+
+	 frequency[variety] = 1
+
+
+
+	print(frequency)
+
+
+
+	LUCAS MOVIE RATING
+
+	# You are using Python
+
+	n=int(input())
+
+	d={}
+
+	for i in range(n):
+
+	 genre=int(input())
+
+	 rating=int(input())
+
+	 if genre not in d:
+
+	 d[genre]=[]
+
+	 d[genre].append(rating)
+
+	result={}
+
+	for key in sorted(d):
+
+	 avg=sum(d[key])/len(d[key])
+
+	 result[key]=f"{avg:.2f}"
+
+	print(result)
+
+
+
+
+
+	ALEX CUSTOMER ID # You are using Python
+
+	def find_smallest_and_largest_order_ids():
+
+	 n = int(input())
+
+	 orders = {}
+
+	 for _ in range(n):
+
+	 order_id = int(input())
+
+	 order_amount = int(input())
+
+	 orders[order_id] = order_amount
+
+
+
+	 smallest_key = None
+
+	 smallest_value = float('inf')
+
+	 largest_key = None
+
+	 largest_value = float('-inf')
+
+
+
+	 for key, value in orders.items():
+
+	 if value < smallest_value:
+
+	 smallest_value = value
+
+	 smallest_key = key
+
+	 if value > largest_value:
+
+	 largest_value = value
+
+	 largest_key = key
+
+
+
+	 print(f"Smallest Order ID: {smallest_key},")
+
+	 print(f"Largest Order ID: {largest_key}")
+
+
+
+	find_smallest_and_largest_order_ids()
+
+
+
+	RIYA TWO DIFFERENT SUPPLIER
+
+	def compare_prices():
+
+	 n1 = int(input())
+
+	 dict1 = {}
+
+	 for _ in range(n1):
+
+	 key = int(input())
+
+	 value = int(input())
+
+	 dict1[key] = value
+
+
+
+	 n2 = int(input())
+
+	 dict2 = {}
+
+	 for _ in range(n2):
+
+	 key = int(input())
+
+	 value = int(input())
+
+	 dict2[key] = value
+
+
+
+	 result = {}
+
+
+
+	 for key, value in dict1.items():
+
+	 if key in dict2:
+
+	 result[key] = abs(value - dict2[key])
+
+	 else:
+
+	 result[key] = value
+
+
+
+	 for key, value in dict2.items():
+
+	 if key not in dict1:
+
+	 result[key] = value
+
+
+
+	 print(result)
+
+
+
+	compare_prices()
+
+
+
+	MAHI SEVERAL SPORTS EVENT
+
+	def count_medals():
+
+	 n = int(input())
+
+	 medals = []
+
+	 for _ in range(n):
+
+	 medals.append(int(input()))
+
+
+
+	 medal_count = {}
+
+	 for medal in medals:
+
+	 if medal in medal_count:
+
+	 medal_count[medal] += 1
+
+	 else:
+
+	 medal_count[medal] = 1
+
+
+
+	 print("Medal Count " + str(medal_count))
+
+
+
+	count_medals()
+
+
+
+	INTEGER SQUARE
+
+	n = int(input())
+
+	result = {}
+
+	for i in range(1, n + 1):
+
+	 result[i] = i * i
+
+	print(result)
+
+
+
+	JACK AND ROSE INVENTORY
+
+	def merge_inventories(dict1, dict2):
+
+	 merged_dict = {}
+
+	 for key, value in dict1.items():
+
+	 if key in dict2:
+
+	 merged_dict[key] = value * dict2[key]
+
+	 else:
+
+	 merged_dict[key] = value
+
+	 for key, value in dict2.items():
+
+	 if key not in dict1:
+
+	 merged_dict[key] = value
+
+	 return merged_dict
+
+
+
+	n = int(input())
+
+	dict1 = {}
+
+	for _ in range(n):
+
+	 key = int(input())
+
+	 value = int(input())
+
+	 dict1[key] = value
+
+
+
+	m = int(input())
+
+	dict2 = {}
+
+	for _ in range(m):
+
+	 key = int(input())
+
+	 value = int(input())
+
+	 dict2[key] = value
+
+
+
+	merged_inventory = merge_inventories(dict1, dict2)
+
+	print(merged_inventory)
+
+
+
+	 		 			 keys()
+
+			 Returns all keys
+
+
+
+
+
+	 		 			 values()
+
+			 Returns all values
+
+
+
+
+
+	 		 			 items()
+
+			 Returns key-value pairs
+
+
+
+
+
+	 		 			 get(key)
+
+			 Returns value of key
+
+
+
+
+
+	 		 			 update()
+
+			 Updates dictionary
+
+
+
+
+
+	 		 			 pop(key)
+
+			 Removes a key
+
+
+
+
+
+	 		 			 popitem()
+
+			 Removes last inserted item
+
+
+
+
+
+	 		 			 clear()
+
+			 Removes all items
+
+
+
+
+
+	 		 			 copy()
+
+			 Creates copy of dictionary
+
+
+
+
+
+	 		 			 setdefault(key,val)
+
+			 Inserts key if absent
+
+
+
+
+

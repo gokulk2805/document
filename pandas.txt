@@ -1,0 +1,270 @@
+﻿LINDA UNIVERSITY ADMISTRATOR
+from pandas import Series
+n = int(input())
+data = {}
+for _ in range(n):
+    roll, name = input().split(",", 1)
+    data[int(roll)] = name
+s = Series(data)
+m = int(input())
+queries = list(map(int, input().split()))
+result = s.reindex(queries)
+print(result)
+
+ELECTION DELHI
+import pandas as pd
+n = int(input())
+data = []
+for _ in range(n):
+    name, age, constituency = input().split(",", 2)
+    data.append([name, int(age), constituency])
+df = pd.DataFrame(data, columns=["Name", "Age", "Constituency"])
+result = df[
+    (df["Constituency"] == "Delhi") &
+    (df["Age"] >= 30) &
+    (df["Age"] <= 50)
+]
+print(result)
+
+SALLY WORKS DIGITAL PORTAL
+# You are using Python
+import pandas as pd
+n=int(input())
+heads=[]
+for i in range(n):
+    head=input()
+    heads.append(head)
+df=pd.DataFrame({
+    "Headline":heads,
+    "Length":[len(i) for i in heads]
+})
+print(df)
+    
+
+ENDSWITH ?
+# You are using Python
+import pandas as pd
+n=int(input())
+s=[]
+for i in range(n):
+    text=input()
+    s.append(text)
+df=pd.DataFrame({
+    "MessageText":s
+})
+filtered=df[df['MessageText'].str.endswith('?')]
+print(filtered)
+
+100 DOLLAR PRICE JESSCA
+import pandas as pd
+
+def update_prices():
+    n = int(input())
+    data = []
+    for _ in range(n):
+        item_name, price_str = input().split(',')
+        price = float(price_str)
+        data.append({'Item': item_name, 'Price': price})
+
+    df = pd.DataFrame(data)
+
+    df['Price'] = df.apply(lambda row: round(row['Price'] * 1.10, 2) if row['Price'] < 100 else row['Price'], axis=1)
+
+    print(df)
+
+update_prices()
+
+Viewing Functions
+FunctionSyntaxFirst rowsdf.head()Last rowsdf.tail()Informationdf.info()Statisticsdf.describe()Shapedf.shapeColumnsdf.columnsData Typesdf.dtypesFunctionSyntaxSumdf.sum()Meandf.mean()Maximumdf.max()Minimumdf.min()Countdf.count()Sort Ascendingdf.sort_values("Age")
+Sort Descendingdf.sort_values("Age", ascending=False)
+
+
+ARM STRONG NUMBER
+num=int(input())
+temp=num
+s=0
+p=len(str(num))
+
+while temp>0:
+    d=temp%10
+    s+=d**p
+    temp//=10
+
+if s==num:
+    print("Armstrong")
+else:
+    print("Not Armstrong")
+
+PERFECT NUMBER
+num=int(input())
+s=0
+
+for i in range(1,num):
+    if num%i==0:
+        s+=i
+
+if s==num:
+    print("Perfect")
+else:
+    print("Not Perfect")
+
+PALINDROME
+num=int(input())
+temp=num
+rev=0
+
+while temp>0:
+    rev=rev*10+temp%10
+    temp//=10
+
+if rev==num:
+    print("Palindrome")
+else:
+    print("Not Palindrome")
+
+REVERSE
+num=int(input())
+temp=num
+rev=0
+
+while temp>0:
+    rev=rev*10+temp%10
+    temp//=10
+
+if rev==num:
+    print("Palindrome")
+else:
+    print("Not Palindrome")
+
+PRIME
+num=int(input())
+c=0
+
+for i in range(1,num+1):
+    if num%i==0:
+        c+=1
+
+if c==2:
+    print("Prime")
+else:
+    print("Not Prime")
+
+FIBONNACI
+n=int(input())
+a=0
+b=1
+lst=[]
+
+for i in range(n):
+    lst.append(a)
+    c=a+b
+    a=b
+    b=c
+
+print(lst)
+
+DIAMOND PRINTING
+n=int(input())
+
+for i in range(n):
+    print(" "*(n-i-1)+"*"*(2*i+1))
+
+for i in range(n-2,-1,-1):
+    print(" "*(n-i-1)+"*"*(2*i+1))
+Output (n=5)
+    *
+   ***
+  *****
+ *******
+*********
+ *******
+  *****
+   ***
+    *
+Reverse Number Pattern
+n=int(input())
+
+for i in range(n,0,-1):
+    for j in range(1,i+1):
+        print(j,end=" ")
+    print()
+Output
+1 2 3 4 5
+1 2 3 4
+1 2 3
+1 2
+1
+
+n=int(input())
+
+num=1
+
+for i in range(1,n+1):
+    for j in range(i):
+        print(num,end=" ")
+        num+=1
+    print()
+Output
+1
+2 3
+4 5 6
+7 8 9 10
+11 12 13 14 15
+n=int(input())
+
+for i in range(1,n+1):
+    print((str(i)+" ")*i)
+Output
+1
+2 2
+3 3 3
+4 4 4 4
+5 5 5 5 5
+n=int(input())
+
+for i in range(1,n+1):
+    for j in range(1,i+1):
+        print(j,end=" ")
+    print()
+Output
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+Inverted Star Pattern
+n=int(input())
+
+for i in range(n,0,-1):
+    print("*"*i)
+Output
+*****
+****
+***
+**
+*
+n=int(input())
+
+for i in range(n):
+    print(" "*(n-i-1)+"*"*(2*i+1))
+Output
+    *
+   ***
+  *****
+ *******
+*********
+n=int(input())
+
+for i in range(1,n+1):
+    print("*"*i)
+Input
+5
+Output
+*
+**
+***
+****
+*****
+
+
+

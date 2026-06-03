@@ -1,0 +1,113 @@
+﻿ALL VALUE SET ZERO
+import numpy as np
+arr=np.zeros(6)
+n=int(input())
+arr[-1]=n
+print(arr)
+
+2D MATRIX
+import numpy as np
+
+# Input rows and columns
+R = int(input())
+C = int(input())
+
+# Generate matrix
+matrix = np.array([[i*j for j in range(C)]for i in range(R)])
+
+# Output
+print("Generated 2D Matrix:")
+print(matrix)
+
+MATRIX NP.ONES
+import numpy as np
+r=int(input())
+c=int(input())
+matrix=np.ones((r,c))
+
+for i in range (r):
+    for j in range (c):
+        if ((i%2==0 and j%2!=0) or (i%2!=0 and j%2==0)):
+            matrix[i][j]=0
+print(matrix)
+
+AUTHOR,PAGES,RATING
+import numpy as np
+
+n = int(input())
+
+# Define structured array data type
+dtype = [('Title', 'U50'),
+         ('Author', 'U50'),
+         ('Pages', 'i4'),
+         ('Rating', 'f4')]
+
+books_list = []
+
+for _ in range(n):
+    title, author, pages, rating = input().split()
+    books_list.append((title, author, int(pages), float(rating)))
+
+# Create structured array
+books = np.array(books_list, dtype=dtype)
+
+# Display all books
+print("All books:")
+print(books)
+
+# Books with more than 300 pages
+print("Books with more than 300 pages:")
+print(books[books['Pages'] > 300])
+
+# Books with rating greater than 4.0
+print("Books with rating > 4.0:")
+print(books[books['Rating'] > 4.0])
+
+RIYA FILTERING SUBJECT
+# You are using Python
+import numpy as np
+
+# Input rows and columns
+R, C = map(int, input().split())
+
+# Input marks
+marks = []
+
+for _ in range(R):
+    row = list(map(int, input().split()))
+    marks.append(row)
+
+# Create NumPy array
+arr = np.array(marks)
+
+# Display all students' marks
+print("Marks of all students:")
+print(arr)
+
+# Calculate average of each student
+avg = np.mean(arr, axis=1)
+
+# Format averages to 2 decimal places
+formatted_avg = [f"{x:.2f}" for x in avg]
+
+print("Average score of each student:")
+print(formatted_avg)
+
+# Filter students with average > 80
+filtered = arr[avg > 80]
+
+print("Students with average score above 80:")
+print(filtered)
+
+FunctionSyntaxPurposeArraynp.array([1,2,3])Create arrayZerosnp.zeros((r,c))Array of zerosOnesnp.ones((r,c))Array of onesEmptynp.empty((r,c))Empty arrayIdentitynp.eye(n)Identity matrixRangenp.arange(start,stop,step)SequenceLinspacenp.linspace(start,stop,n)Equal intervalsFunctionSyntaxShapea.shapeDimensiona.ndimSizea.sizeData Typea.dtypeReshapea.reshape(r,c)Flattena.flatten()FunctionSyntaxSumnp.sum(a)Meannp.mean(a)Mediannp.median(a)Maximumnp.max(a)Minimumnp.min(a)Standard Deviationnp.std(a)Variancenp.var(a)a = np.array([1,2,3])
+b = np.array([4,5,6])
+
+print(a+b)
+
+print(a-b)
+
+print(a*b)
+
+print(a/b)
+
+print(a**2)

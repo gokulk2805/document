@@ -1,0 +1,121 @@
+﻿USING STRIP METHOD
+s=input()
+c=input()
+s=s.strip(c)
+text=""
+for ch in s:
+    if ch.isalpha or ch.isspace:
+      text += ch
+print("Cleaned text : ",text)
+
+NUMBERS PALINDROME MESSAGE
+s=input()
+digit_sum=sum(int(ch) for ch in s if ch.isdigit())
+print(digit_sum,end="")
+if digit_sum > 9 :
+    sum_str=str(digit_sum)
+    if sum_str== sum_str[::-1]:
+        print(" Palindrome")
+    else:
+        print(" Not palindrome")
+
+
+PERFECT VOWEL
+s=input().strip()
+vowels="aeiou"
+if s[0] in vowels:
+    print("False")
+else:
+    p_c= False
+    perfect = True
+    
+    for ch in s :
+        if ch in vowels:
+            p_c=False
+        else:
+            if p_c:
+                perfect = False
+                break
+            p_c=True
+    if perfect:
+        print("True")
+    else:
+            print("False")
+
+FILLING ZEROS
+p=input().strip()
+fn=p.zfill(10)
+print(fn)
+
+
+COMBINATION OF TWO STR
+# You are using Python
+s1=input().strip()
+s2=input().strip()
+result=""
+for i in range (len(s1)):
+    result += s1[i]+s2[i]
+print(result)
+
+PHONE NUMBER
+n=int(input())
+ac=[]
+for _ in range(n):
+    s=input()
+    if len(s) == 14:
+        if (s[0] == '(' and s[4]==')' and s[5]==' ' and s[9]=='-'):
+            
+            if (s[1:4].isdigit() and s[6:9].isdigit() and s[10:14].isdigit()):
+                ac.append(s[1:4])
+                
+print("Valid area codes:", ",".join(ac))
+
+LJUST AND RJUST
+n=int(input())
+names=[]
+prices=[]
+for _ in range(n):
+    name,price=input().split()
+    names.append(name)
+    prices.append(price)
+    
+mname=max(len(name) for name in names)
+mprice=max(len(price) for price in prices)
+
+for i  in range(n):
+    print(names[i].ljust(mname),prices[i].rjust(mprice))
+
+TITLE,WIDTH
+t=input()
+w=int(input())
+
+total=w-len(t)
+
+left=(total + 1)//2
+right=total//2
+print('*' * left + t + '*' * right)
+
+STR FUNCTIONS 
+len(s)Returns length of string
+s.upper()Converts to uppercase
+s.lower()Converts to lowercase
+s.capitalize()First letter uppercase
+s.title()First letter of each word uppercase
+s.swapcase()Changes upper to lower and vice versa
+s.strip()Removes spaces from both ends
+s.lstrip()Removes left spaces
+s.rstrip()Removes right spaces
+s.replace(old,new)Replaces substring
+s.find(sub)Finds position of substring
+s.index(sub)Finds position (error if not found)
+s.count(sub)Counts occurrences
+s.startswith(sub)Checks starting characters
+s.endswith(sub)Checks ending characters
+s.split()Splits string into list
+'sep'.join(list)Joins list into string
+s.isalpha()Checks all alphabets
+s.isdigit()Checks all digits
+s.isalnum()Checks alphanumeric
+s.isspace()Checks only spaces
+s.center(n)Centers string
+s.zfill(n)Fills leading zeros
